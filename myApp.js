@@ -6,6 +6,11 @@ const publicPath = __dirname + '/public';
 
 app.use("/public",express.static(publicPath));
 
+app.use(function(req, res, next) {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
+});
+
 app.get("/", function(req, res) {
   const viewPath = __dirname + '/views/index.html';
   res.sendFile(viewPath);
