@@ -16,6 +16,10 @@ app.get("/", function(req, res) {
   res.sendFile(viewPath);
 });
 
+app.get("/:word/echo", function(req, res) {
+  res.send({echo: req.params.word});
+});
+
 app.get("/json", function(req, res) {
   const messageStyle = process.env.MESSAGE_STYLE;
   let message = 'Hello json';
@@ -29,7 +33,9 @@ app.get("/now", function(req, res, next) {
   next();
 }, function(req, res) {
     res.send({time: req.time});
-})
+});
+
+
 
 console.log("Hello World");
 
