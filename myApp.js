@@ -35,7 +35,12 @@ app.get("/now", function(req, res, next) {
     res.send({time: req.time});
 });
 
-
+app.route("/name")
+  .get(function(req, res) {
+    const firstName = req.query.first;
+    const lastName = req.query.last;
+    res.send({name: firstName+" "+lastName});
+  });
 
 console.log("Hello World");
 
