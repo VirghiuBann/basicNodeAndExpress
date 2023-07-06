@@ -43,6 +43,11 @@ app.route("/name")
     const firstName = req.query.first;
     const lastName = req.query.last;
     res.send({name: firstName+" "+lastName});
+  })
+  .post(function(req, res){
+    const firstName = req.body.first;
+    const lastName = req.body.last;
+    res.send({name: firstName+" "+lastName});
   });
 
 console.log("Hello World");
